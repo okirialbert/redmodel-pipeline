@@ -7,11 +7,11 @@ Files containing the definition of DAGs that are used to implement the pipeline
 ### /utils
 Contains module files that are used in the ML pipeline for tasks such as transformation and training.
 
-### /notebooks
-Contains the notebooks that are used for exploring the data before utilizing them for training as well as debugging the workflows.
+analysis notebook is used to preprocess data before saving it in required directory for ML pipelines
 
-### /scripts
-This folder features files that are used to configure the environment and perform tasks such as initializing docker image for containing the model server.
+remodel_nsl notebook implements the semi supervised workflow as performed in Airflow.
+
+setup_tfx_airflow shell script install the required libraries for reproducing the task.
 
 ![Screenshot semisupervised learning workflow](https://raw.githubusercontent.com/devlp121/redmodel-pipeline/master/test1.png)
 
