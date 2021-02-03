@@ -1,6 +1,12 @@
 # Redmodel
 TFX implementation of text sentiment classification using Airflow.
 
+### /dags
+Files containing the definition of DAGs that are used to implement the pipeline
+
+### /utils
+Contains module files that are used in the ML pipeline for tasks such as transformation and training.
+
 ![Screenshot semisupervised learning workflow](https://raw.githubusercontent.com/devlp121/redmodel-pipeline/master/test1.png)
 
 Pipeline components are implemented as DAGs using Airflow
