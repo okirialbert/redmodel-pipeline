@@ -33,9 +33,3 @@ This component retrieves the probable label assignment from the synthesized grap
 #### Trainer
 This method leverages tensorflow to perform training task that completes the model development phase.
 
-
-## Serving
-The Tensorflow Serving library has REST API endpoint features for SavedModels that are used to perform inferences
-
-### Environment Setup
-The 
