@@ -14,7 +14,10 @@ echo Pulling the TF Docker image: $DOCKER_IMAGE_NAME
 
 docker pull $DOCKER_IMAGE_NAME
 
-# Dir for model exported for serving
+# Directories for model exported for serving
+# TODO:: Change model directory
+
+MODEL_DIR="$(pwd)/Dev/notebks/mh"
 LOCAL_MODEL_DIR=savedmodel/redmodel
 MODEL_NAME=redmodel
 # Make sure the trained model is available
@@ -39,3 +42,11 @@ echo Model directory: $LOCAL_MODEL_DIR
 docker run -p 8501:8501 \
   --mount type=bind,source=$LOCAL_MODEL_DIR,target=$CONTAINER_MODEL_DIR \
   -e MODEL_NAME=$MODEL_NAME -t $DOCKER_IMAGE_NAME
+  
+
+docker run -t --rm -p 8501:8501 \
+    -v "$MODEL_DIR/$LOCAL_MODEL_DIR:$CONTAINER_MODEL_DIR" \
+    -e MODEL_NAME=$MODEL_NAME \
+    tensorflow/serving &
+
+
