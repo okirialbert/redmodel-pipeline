@@ -14,14 +14,10 @@ import pandas as pd
 host = 'localhost'
 port = '8501'
 
-_inference_timeout = 5
+_inference_timeout = (50, 50)
 
 
 VOCAB_SIZE = 1000
-
-
-data = ('If the output of the model contains only one named tensor, we omit the name and outputs key maps to a list of scalar or list values. If the model outputs multiple named tensors, we output an object instead. Each key of this object corresponds to a named output tensor. The format is similar to the request in column format mentioned above.')
-
 
 
 
@@ -31,8 +27,7 @@ def _infer_example(example):
     
     server_url = 'http://' + host + ':' + port + '/v1/models/redmodel:predict'
 
-    response = requests.post(
-        server_url, data=data)
+    response = requests.post(server_url, data=data, timeout=_inference_timeout)
     response.raise_for_status()
     prediction = response.json()
     print(json.dumps(prediction, indent=4))
