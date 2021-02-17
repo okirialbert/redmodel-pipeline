@@ -45,3 +45,6 @@ This component retrieves the probable label assignment from the synthesized grap
 #### Trainer
 This method leverages tensorflow to perform training task that completes the model development phase.
 
+![Inference output for a locally served model](https://raw.githubusercontent.com/devlp121/redmodel-pipeline/master/inf2.png)
+
+
